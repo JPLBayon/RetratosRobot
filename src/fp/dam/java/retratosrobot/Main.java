@@ -32,20 +32,25 @@ public class Main {
 	}
 	
 	public static String elegirOpcion(String rasgo, String op1, String op2, String op3, String op4) throws IOException {
-		System.out.println("Elige una opción para " + rasgo);
-		System.out.println("1 - " + op1);
-		System.out.println("2 - " + op2);
-		System.out.println("3 - " + op3);
-		System.out.println("4 - " + op4);
-		System.out.print("Opcion (1 a 4): ");
-		int op = Integer.parseInt(in.readLine());
-		switch (op) {
-		case 1: return op1;
-		case 2: return op2;
-		case 3: return op3;
-		case 4: return op4;
-		}
-		return null;
+		String resultado = null;
+		int op;
+		do {
+			System.out.println("Elige una opción para " + rasgo);
+			System.out.println("1 - " + op1);
+			System.out.println("2 - " + op2);
+			System.out.println("3 - " + op3);
+			System.out.println("4 - " + op4);
+			System.out.print("Opcion (1 a 4): ");
+			op = Integer.parseInt(in.readLine());
+			switch (op) {
+			case 1: resultado =  op1; break;
+			case 2: resultado =  op2; break;
+			case 3: resultado =  op3; break;
+			case 4: resultado =  op4; break;
+			default: System.out.println("opcion incorrecta, inténtalo de nuevo");
+			}
+		} while (op < 1 || op > 4);
+		return resultado;
 	}
 
 }

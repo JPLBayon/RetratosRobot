@@ -34,26 +34,32 @@ public class Main {
 			System.out.println(retrato[i]);
 	}
 	
-	public static String elegirOpcion(int i) throws IOException {
-//		String resultado = null;
+//	public static String elegirOpcion(int i) throws IOException {
 //		int op;
 //		do {
-//			System.out.println("Elige una opción para " + rasgo);
-//			System.out.println("1 - " + op1);
-//			System.out.println("2 - " + op2);
-//			System.out.println("3 - " + op3);
-//			System.out.println("4 - " + op4);
-//			System.out.print("Opcion (1 a 4): ");
+//			System.out.println("Elige una opción para " + opciones[i][0]);
+//			for (int j=1; j<opciones[i].length; j++)
+//				System.out.println(j + " - " + opciones[i][j]);
+//			System.out.print("Opcion (1 a " + (opciones[i].length - 1) + "): ");
 //			op = Integer.parseInt(in.readLine());
-//			switch (op) {
-//			case 1: resultado =  op1; break;
-//			case 2: resultado =  op2; break;
-//			case 3: resultado =  op3; break;
-//			case 4: resultado =  op4; break;
-//			default: System.out.println("opcion incorrecta, inténtalo de nuevo");
-//			}
+//			if (op < 1 || op > (opciones[i].length - 1))
+//				System.out.println("Opción incorrecta, inténtalo de nuevo");
 //		} while (op < 1 || op > 4);
-//		return resultado;
+//		return opciones[i][op];
+//	}
+	
+	public static String elegirOpcion(int i) throws IOException {
+		do {
+			System.out.println("Elige una opción para " + opciones[i][0]);
+			for (int j=1; j<opciones[i].length; j++)
+				System.out.println(j + " - " + opciones[i][j]);
+			System.out.print("Opcion (1 a " + (opciones[i].length - 1) + "): ");
+			try {
+				return opciones[i][Integer.parseInt(in.readLine())];
+			} catch (ArrayIndexOutOfBoundsException e) {
+				System.out.println("Opción incorrecta, inténtalo de nuevo");
+			}
+		} while (true);
 	}
 
 }
